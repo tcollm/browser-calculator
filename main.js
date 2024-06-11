@@ -18,11 +18,11 @@ function createOnClickEvents() {
 }
 
 function emphasizeButton(button) {
-    button.style.border = "2px solid black"; 
+    button.style.border = "1px solid gray"; 
 
     setTimeout(() => {
-        button.style.border = "2px solid transparent"; 
-    }, 300); 
+        button.style.border = "1px solid transparent"; 
+    }, 120); 
 }
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
