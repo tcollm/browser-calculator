@@ -17,8 +17,14 @@ function createOnClickEvents() {
     })); 
 }
 
+// add check for button type 
 function emphasizeButton(button) {
-    button.style.border = "1px solid gray"; 
+
+    if (button.textContent === "=") {
+        button.style.border = "1px solid black"; 
+    } else {
+        button.style.border = "1px solid gray"; 
+    }
 
     setTimeout(() => {
         button.style.border = "1px solid transparent"; 
