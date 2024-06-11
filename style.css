@@ -7,9 +7,8 @@
     display: flex;
     flex-direction: column;
     margin: 32px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 640px;
-    height: 480px;
 }
 
 .buttons {
@@ -26,19 +25,26 @@
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     flex-basis: 1;
 }
 
 .num-row-1, .num-row-2, .num-row-3, .num-row-4  {
     display: flex;
     flex: 1;
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
 }
 
 .num-row-1 > *, .num-row-2 > *, .num-row-3 > *, .num-row-4 > *, .operators > * {
     width: 100%;
+    height: 32px;
     flex: 1;
+    margin: 3px;
+}
+
+.operators > * {
+    width: 32px;
+    background-color: rgb(192, 191, 191);
 }
 
 body, button{
@@ -46,6 +52,15 @@ body, button{
 }
 
 .display {
-    border: 2px solid black;
+    border: 2px solid rgb(192, 191, 191);
+    border-radius: 8px;
     width: 100%;
+    box-sizing: border-box;
+    margin: 3px 0px;
+    padding: 8px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
 }
