@@ -20,9 +20,8 @@ function createOnClickEvents() {
 function emphasizeButton(button) {
     button.style.border = "2px solid black"; 
 
-
     setTimeout(() => {
-        button.style.border = "none"; 
+        button.style.border = "2px solid transparent"; 
     }, 300); 
 }
 
