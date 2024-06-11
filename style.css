@@ -64,3 +64,8 @@ button {
     border: none;
     border-radius: 8px;
 }
+
+#equals {
+    background-color: rgb(0, 110, 255); 
+    color: white;
+}
