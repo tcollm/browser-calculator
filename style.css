@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: column;
     margin: 32px;
+    border: 2px solid red;
+    width: 640px;
+    height: 480px;
 }
 
 .buttons {
@@ -16,11 +19,26 @@
 .numbers {
     display: flex;
     flex-direction: column;
+    flex-grow: 3;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    border: 2px solid green;
+    flex-basis: 1;
 }
 
 .num-row-1, .num-row-2, .num-row-3, .num-row-4  {
-    width: 640px;
+    display: flex;
+    flex: 1;
     border: 2px solid purple;
+}
+
+.num-row-1 > *, .num-row-2 > *, .num-row-3 > *, .num-row-4 > *, .operators > * {
+    width: 100%;
+    flex: 1;
 }
 
 body, button{
@@ -29,5 +47,5 @@ body, button{
 
 .display {
     border: 2px solid black;
-    width: 640px;
+    width: 100%;
 }
