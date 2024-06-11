@@ -1,6 +1,9 @@
 function changeDisplay(displayContent) {
     const display = document.querySelector(".display"); 
-
+    if (display.textContent === "0") {
+        display.textContent = ""; 
+    }
+    
     display.textContent += displayContent; 
 }
 
