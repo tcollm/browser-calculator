@@ -89,9 +89,9 @@ function getAnswer(display) {
             case "+":
                 add(x, y, display); 
                 break;
-            default:
-                console.log("ERROR: " + element + "not recognized as " +
-                    "an operator.");
+            // default:
+            //     console.log("ERROR: " + element + "not recognized as " +
+            //         "an operator.");
         }
     }); 
 }
@@ -103,17 +103,17 @@ function divide(x, y, display) {
 }
 
 function multiply(x, y, display) {
-    console.log("Division operation: " + (x * y)); 
+    console.log("Multiplication operation: " + (x * y)); 
     // display.textContent = x * y; 
 }
 
 function subtract(x, y, display) {
-    console.log("Division operation: " + (x - y)); 
+    console.log("Subtraction operation: " + (x - y)); 
     // display.textContent = x - y; 
 }
 
 function add(x, y, display) {
-    console.log("Division operation: " + (x + y)); 
+    console.log("Addition operation: " + (x + y)); 
     // display.textContent = x + y; 
 }
 
