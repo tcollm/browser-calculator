@@ -45,13 +45,13 @@ function createOnClickEvents() {
     const buttons = Array.from(document.querySelectorAll("button")); 
 
     buttons.forEach((button) => button.addEventListener("click", () => {
-        addEmphasize(button); 
+        addEmphasis(button); 
         changeDisplay(button.textContent); 
     })); 
 }
 
 // add check for button type 
-function addEmphasize(button) {
+function addEmphasis(button) {
     const display = document.querySelector(".display"); 
     display.style.border = "2px solid rgb(0, 110, 255)";
 

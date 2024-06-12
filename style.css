@@ -58,7 +58,7 @@ body, button{
 }
 
 .display {
-    border: 2px solid rgb(207, 207, 207);
+    border: 1px solid rgb(207, 207, 207);
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
@@ -83,3 +83,6 @@ button {
     background-color: rgb(0, 110, 255); 
     color: white;
 }
+
+/*  gray: rgb(207, 207, 207)
+    blue: rgb(0, 110, 255) */
