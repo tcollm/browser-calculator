@@ -1,3 +1,5 @@
+let equalSignPressed; 
+
 function changeDisplay(buttonText) {
     const display = document.querySelector(".display"); 
 
@@ -5,16 +7,24 @@ function changeDisplay(buttonText) {
     inputCheck = checkValidInput(buttonText, display); 
 
     if (inputCheck === 0) {
-        if (buttonText === "CE") {
-            display.textContent = "0"
-            return; 
-        }
-    
         // BUG: if equal sign pressed after operation, display is erased.
         // Correct functionality should not change display at all.
         // (This will be fixed with y value check in checkValidInput function.) 
         if (buttonText === "=") {
+            equalSignPressed = true; 
             getAnswer(display);  
+            return; 
+        }
+
+        // BUG: equal sign is pressed and then an operation comes after it,
+        // then 0 is not appended before the operator
+        if (equalSignPressed) {
+            display.textContent = ""; 
+            equalSignPressed = false; 
+        }
+
+        if (buttonText === "CE") {
+            display.textContent = "0"
             return; 
         }
     
