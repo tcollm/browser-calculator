@@ -1,10 +1,16 @@
-function changeDisplay(displayContent) {
+function changeDisplay(buttonText) {
     const display = document.querySelector(".display"); 
+
+    if (buttonText === "CE") {
+        display.textContent = "0"
+        return; 
+    }
+
     if (display.textContent === "0") {
         display.textContent = ""; 
     }
 
-    display.textContent += displayContent; 
+    display.textContent += buttonText; 
     // checkValidInput(currentDisplayContent, contentToAdd); 
 }
 
