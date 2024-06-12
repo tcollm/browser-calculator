@@ -141,11 +141,11 @@ function splitContent(display) {
 
 function checkContentIncludesOperator(content) {
     if (typeof content === "string") {
-        return ["/", "x", "-", "+"].includes(content); 
+        return ["/", "x", "-", "+", "."].includes(content); 
     }
 
     for (let element of content) {
-        if (["/", "x", "-", "+"].includes(element)) {
+        if (["/", "x", "-", "+", "."].includes(element)) {
             return true; 
         }
     }
