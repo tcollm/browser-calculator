@@ -57,10 +57,7 @@ function emphasizeButton(button) {
 }
 
 function getAnswer(display) {
-    const displayContent = display.textContent; 
-
-    // turn display content into an array
-    let displayArr = displayContent.split(" ");
+    let displayArr = splitContent(display); 
 
     displayArr.forEach((element) => {
         switch(element) {
@@ -102,6 +99,7 @@ function add(x, y, display) {
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
 function checkValidInput(buttonText, display) {
+    let displayArr = splitContent(display); 
 
     // check if multiple operators pressed 
     if () {
@@ -117,6 +115,11 @@ function checkValidInput(buttonText, display) {
 
 }
 
+function splitContent(display) {
+    const displayContent = display.textContent; 
+
+    return displayArr = displayContent.split(" ");
+}
 
 function main() {
     createOnClickEvents(); 
