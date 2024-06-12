@@ -26,6 +26,8 @@ function changeDisplay(buttonText) {
         }
     
         display.textContent += buttonText; 
+    } else if (inputCheck === "WARNING: multiple operators pressed") { 
+        console.log("WARNING: mult ops pressed");
     } else {
         console.log("ERROR: invalid input in changeDisplay"); 
     }
@@ -104,10 +106,10 @@ function checkValidInput(buttonText, display) {
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
 
     if (displayArrCheck === true && buttonTextCheck === true) {
-        return "multiple operators pressed";
+        return "WARNING: multiple operators pressed";
     // x value should always be found
     } else if (displayArrCheck === true && buttonText === "=") {
-        return "y value not found"; 
+        return "WARNING: y value not found"; 
     }  
 
     return true; 
@@ -122,19 +124,14 @@ function splitContent(display) {
 
 function checkContentIncludesOperator(content) {
     if (typeof content === "string") {
-        if (content === "/" || content === "x" || content === "-" || 
-            content === "+") {
-                return true; 
-        }
-        return false;   
+        return ["/", "x", "-", "+"].includes(content); 
     }
 
-    content.forEach((element) => {
-        if (element === "/" || element === "x" || element === "-" || 
-            element === "+") {
-                return true; 
+    for (let element of content) {
+        if (["/", "x", "-", "+"].includes(element)) {
+            return true; 
         }
-    });
+    }
     return false; 
 }
 
