@@ -102,12 +102,11 @@ function checkValidInput(buttonText, display) {
 
     let displayArrCheck = checkContentIncludesOperator(displayArr);
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
-     
+
     if (displayArrCheck === true && buttonTextCheck === true) {
         return "multiple operators pressed";
-    // check if there are x, y, and an operator values before pressing "="
-    } else if () {
-        return "x value not found"; 
+    // x value should always be found
+    } else if (displayArrCheck === true && buttonText === "=") {
         return "y value not found"; 
     }  
 
