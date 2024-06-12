@@ -1,9 +1,11 @@
 function changeDisplay(buttonText) {
     const display = document.querySelector(".display"); 
 
-    let inputCheck = checkValidInput(buttonText, display); 
+    let inputCheck = 0; 
+    inputCheck = checkValidInput(buttonText, display); 
 
-    if (inputCheck) {
+    console.log("Input check: " + inputCheck); 
+    if (inputCheck === 0) {
         if (buttonText === "CE") {
             display.textContent = "0"
             return; 
@@ -17,20 +19,21 @@ function changeDisplay(buttonText) {
         if (display.textContent === "0") {
             display.textContent = ""; 
         }
-    
-        // if operator called add spaces before and after 
-        // ALSO check if an operator has been called before
+
         let operatorCheck = checkContentIncludesOperator(buttonText); 
         if (operatorCheck === true) {
             buttonText = " " + buttonText + " "; 
         }
     
         display.textContent += buttonText; 
-    } else if (inputCheck === "WARNING: multiple operators pressed") { 
+    } else if (inputCheck === 1) { 
         console.log("WARNING: mult ops pressed");
-    } else {
-        console.log("ERROR: invalid input in changeDisplay"); 
+    } else if (inputCheck === 2) {
+        console.log("WARNING: no y value");
     }
+    // } else {
+    //     console.log("ERROR: invalid input in changeDisplay"); 
+    // }
 
 }
 
@@ -98,6 +101,11 @@ function add(x, y, display) {
     display.textContent = x + y; 
 }
 
+// WARNINGS:
+// 0 : none
+// 1 : multiple operators pressed
+// 2 : y value not found
+
 // checks if the next input is valid. Ex: cannot put "+" after "="
 function checkValidInput(buttonText, display) {
     let displayArr = splitContent(display); 
@@ -105,14 +113,17 @@ function checkValidInput(buttonText, display) {
     let displayArrCheck = checkContentIncludesOperator(displayArr);
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
 
-    if (displayArrCheck === true && buttonTextCheck === true) {
-        return "WARNING: multiple operators pressed";
-    // x value should always be found
-    } else if (displayArrCheck === true && buttonText === "=") {
-        return "WARNING: y value not found"; 
-    }  
+    // console.log("display contains operator: " + displayArrCheck
+    //     + "\n\n" + "button contains operator: " + buttonTextCheck); 
 
-    return true; 
+    if (displayArrCheck === true && buttonTextCheck === true) {
+        // console.log("Returned warning");
+        return 1;
+    } else if (displayArrCheck === true && buttonText === "=") {
+        return 2; 
+    }
+    // console.log("Returned true")
+    return 0; 
 
 }
 
