@@ -122,8 +122,8 @@ function splitContent(display) {
 
 function checkContentIncludesOperator(content) {
     if (typeof content === "string") {
-        if (element === "/" || element === "x" || element === "-" || 
-            element === "+") {
+        if (content === "/" || content === "x" || content === "-" || 
+            content === "+") {
                 return true; 
         }
         return false;   
