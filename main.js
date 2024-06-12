@@ -1,28 +1,36 @@
 function changeDisplay(buttonText) {
     const display = document.querySelector(".display"); 
 
-    if (buttonText === "CE") {
-        display.textContent = "0"
-        return; 
+    let inputCheck = checkValidInput(buttonText, display); 
+
+    if (inputCheck) {
+        if (buttonText === "CE") {
+            display.textContent = "0"
+            return; 
+        }
+    
+        if (buttonText === "=") {
+            getAnswer(display);  
+            return; 
+        }
+    
+        if (display.textContent === "0") {
+            display.textContent = ""; 
+        }
+    
+        // if operator called add spaces before and after 
+        // ALSO check if an operator has been called before
+        if (buttonText === "/" || buttonText === "x" || buttonText === "-" || 
+            buttonText === "+") 
+        {
+            buttonText = " " + buttonText + " "; 
+        }
+    
+        display.textContent += buttonText; 
+    } else {
+        console.log("ERROR: invalid input in changeDisplay"); 
     }
 
-    if (buttonText === "=") {
-        getAnswer(display);  
-        return; 
-    }
-
-    if (display.textContent === "0") {
-        display.textContent = ""; 
-    }
-
-    // if operator called add spaces before and after 
-    // ALSO check if an operator has been called before
-    if (buttonText === "/" || buttonText === "x" || buttonText === "-" || buttonText === "+") {
-        buttonText = " " + buttonText + " "; 
-    }
-
-    display.textContent += buttonText; 
-    // checkValidInput(currDisplayContent, contentToAdd); 
 }
 
 function createOnClickEvents() {
@@ -93,8 +101,21 @@ function add(x, y, display) {
 }
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
-// function checkValidInput() {
-// }
+function checkValidInput(buttonText, display) {
+
+    // check if multiple operators pressed 
+    if () {
+        return "multiple operators pressed";
+
+    // check if there are x, y, and an operator values before pressing "="
+    } else if () {
+        return "x value not found"; 
+        return "y value not found"; 
+    }  
+
+    return true; 
+
+}
 
 
 function main() {
