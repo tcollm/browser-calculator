@@ -98,23 +98,19 @@ function getAnswer(display) {
 
 // do all of the x and y values need to be converted to ints before operations happen?
 function divide(x, y, display) {
-    console.log("Division operation: " + (x / y)); 
-    // display.textContent = x / y; 
+    display.textContent = x / y; 
 }
 
 function multiply(x, y, display) {
-    console.log("Multiplication operation: " + (x * y)); 
-    // display.textContent = x * y; 
+    display.textContent = x * y; 
 }
 
 function subtract(x, y, display) {
-    console.log("Subtraction operation: " + (x - y)); 
-    // display.textContent = x - y; 
+    display.textContent = x - y; 
 }
 
 function add(x, y, display) {
-    console.log("Addition operation: " + (x + y)); 
-    // display.textContent = x + y; 
+    display.textContent = x + y; 
 }
 
 // WARNINGS:
