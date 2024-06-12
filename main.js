@@ -17,7 +17,7 @@ function changeDisplay(buttonText) {
 
     // if operator called add spaces before and after 
     // ALSO check if an operator has been called before
-    if (buttonText === "/" || buttonText === "x" || buttonText === "-" || buttonText === "+" || ) {
+    if (buttonText === "/" || buttonText === "x" || buttonText === "-" || buttonText === "+") {
         buttonText = " " + buttonText + " "; 
     }
 
