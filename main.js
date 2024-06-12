@@ -129,6 +129,9 @@ function checkValidInput(buttonText, display) {
     } else if (displayArrCheck === true && buttonText === "=") {
         return 2; 
     }
+
+    // Check for multiple "."
+    // Allow a single . per number
     return 0; 
 
 }
@@ -141,11 +144,11 @@ function splitContent(display) {
 
 function checkContentIncludesOperator(content) {
     if (typeof content === "string") {
-        return ["/", "x", "-", "+", "."].includes(content); 
+        return ["/", "x", "-", "+"].includes(content); 
     }
 
     for (let element of content) {
-        if (["/", "x", "-", "+", "."].includes(element)) {
+        if (["/", "x", "-", "+"].includes(element)) {
             return true; 
         }
     }
