@@ -4,7 +4,6 @@ function changeDisplay(buttonText) {
     let inputCheck = 0; 
     inputCheck = checkValidInput(buttonText, display); 
 
-    console.log("Input check: " + inputCheck); 
     if (inputCheck === 0) {
         if (buttonText === "CE") {
             display.textContent = "0"
@@ -53,7 +52,8 @@ function createOnClickEvents() {
 // add check for button type 
 function addEmphasis(button) {
     const display = document.querySelector(".display"); 
-    display.style.border = "2px solid rgb(0, 110, 255)";
+
+    display.style.border = "1px solid rgb(0, 110, 255)";
 
     if (button.textContent === "=") {
         button.style.border = "1px solid black"; 
@@ -63,7 +63,7 @@ function addEmphasis(button) {
 
     setTimeout(() => {
         button.style.border = "1px solid transparent"; 
-        display.style.border = "2px solid rgb(207, 207, 207)";
+        display.style.border = "1px solid rgb(207, 207, 207)";
     }, 120); 
 }
 
@@ -124,16 +124,11 @@ function checkValidInput(buttonText, display) {
     let displayArrCheck = checkContentIncludesOperator(displayArr);
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
 
-    // console.log("display contains operator: " + displayArrCheck
-    //     + "\n\n" + "button contains operator: " + buttonTextCheck); 
-
     if (displayArrCheck === true && buttonTextCheck === true) {
-        // console.log("Returned warning");
         return 1;
     } else if (displayArrCheck === true && buttonText === "=") {
         return 2; 
     }
-    // console.log("Returned true")
     return 0; 
 
 }
