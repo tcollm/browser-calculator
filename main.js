@@ -8,10 +8,17 @@ function changeDisplay(buttonText) {
 
     if (buttonText === "=") {
         getAnswer(display);  
+        return; 
     }
 
     if (display.textContent === "0") {
         display.textContent = ""; 
+    }
+
+    // if operator called add spaces before and after 
+    // ALSO check if an operator has been called before
+    if (buttonText === "/" || buttonText === "x" || buttonText === "-" || buttonText === "+" || ) {
+        buttonText = " " + buttonText + " "; 
     }
 
     display.textContent += buttonText; 
