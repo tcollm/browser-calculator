@@ -20,16 +20,20 @@ function changeDisplay(buttonText) {
             display.textContent = ""; 
         }
 
+        // Treat operators differently than numbers. The spaces make 
+        // them more visually appealing. 
         let operatorCheck = checkContentIncludesOperator(buttonText); 
         if (operatorCheck === true) {
+            // check if there is an x value, if not then set 0 to the x
+            // value and append the operator
             buttonText = " " + buttonText + " "; 
         }
     
         display.textContent += buttonText; 
     } else if (inputCheck === 1) { 
-        console.log("WARNING: mult ops pressed");
+        console.log("WARNING: multiple operators pressed.");
     } else if (inputCheck === 2) {
-        console.log("WARNING: no y value");
+        console.log("WARNING: Y value not given.");
     }
     // } else {
     //     console.log("ERROR: invalid input in changeDisplay"); 
@@ -86,19 +90,23 @@ function getAnswer(display) {
 
 // do all of the x and y values need to be converted to ints before operations happen?
 function divide(x, y, display) {
-    display.textContent = x / y; 
+    console.log("Division operation: " + (x / y)); 
+    // display.textContent = x / y; 
 }
 
 function multiply(x, y, display) {
-    display.textContent = x * y; 
+    console.log("Division operation: " + (x * y)); 
+    // display.textContent = x * y; 
 }
 
 function subtract(x, y, display) {
-    display.textContent = x - y; 
+    console.log("Division operation: " + (x - y)); 
+    // display.textContent = x - y; 
 }
 
 function add(x, y, display) {
-    display.textContent = x + y; 
+    console.log("Division operation: " + (x + y)); 
+    // display.textContent = x + y; 
 }
 
 // WARNINGS:
