@@ -10,6 +10,9 @@ function changeDisplay(buttonText) {
             return; 
         }
     
+        // BUG: if equal sign pressed after operation, display is erased.
+        // Correct functionality should not change display at all.
+        // (This will be fixed with y value check in checkValidInput function.) 
         if (buttonText === "=") {
             getAnswer(display);  
             return; 
@@ -23,9 +26,13 @@ function changeDisplay(buttonText) {
         // them more visually appealing. 
         let operatorCheck = checkContentIncludesOperator(buttonText); 
         if (operatorCheck === true) {
-            // check if there is an x value, if not then set 0 to the x
-            // value and append the operator
-            buttonText = " " + buttonText + " "; 
+            // If there is no given x value, than it is assumed that 
+            // the x value should be 0. 
+            if (buttonText === "0") {
+                buttonText = "0" + " " + buttonText + " "; 
+            } else {
+                buttonText = " " + buttonText + " ";
+            }
         }
     
         display.textContent += buttonText; 
