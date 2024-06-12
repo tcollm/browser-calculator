@@ -70,19 +70,24 @@ function addEmphasis(button) {
 function getAnswer(display) {
     let displayArr = splitContent(display); 
 
+    // Possible make getting x and y values more secure/robust
+    // Note: + operator converts strings to ints/floats
+    let x = +(displayArr[0]);
+    let y = +(displayArr[2]); 
+
     displayArr.forEach((element) => {
         switch(element) {
             case "/":
-                divide(display);
+                divide(x, y, display);
                 break;
             case "x":
-                multiply(display);
+                multiply(x, y, display);
                 break;
             case "-":
-                subtract(display); 
+                subtract(x, y, display); 
                 break;
             case "+":
-                add(display); 
+                add(x, y, display); 
                 break;
             default:
                 console.log("ERROR: " + element + "not recognized as " +
@@ -126,9 +131,16 @@ function checkValidInput(buttonText, display) {
 
     if (displayArrCheck === true && buttonTextCheck === true) {
         return 1;
-    } else if (displayArrCheck === true && buttonText === "=") {
-        return 2; 
     }
+
+    // Check for correct number of values needs to be more secure. 
+    // Possibly convert first and third values to ints, and then
+    // check if array contains an operator and two ints (and an
+    // equal sign)
+
+    // } else if (displayArrCheck === true && displayArr.length != 3) {
+    //     return 2; 
+    // }
 
     // Check for multiple "."
     // Allow a single . per number
