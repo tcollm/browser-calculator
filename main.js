@@ -45,13 +45,15 @@ function createOnClickEvents() {
     const buttons = Array.from(document.querySelectorAll("button")); 
 
     buttons.forEach((button) => button.addEventListener("click", () => {
-        emphasizeButton(button); 
+        addEmphasize(button); 
         changeDisplay(button.textContent); 
     })); 
 }
 
 // add check for button type 
-function emphasizeButton(button) {
+function addEmphasize(button) {
+    const display = document.querySelector(".display"); 
+    display.style.border = "2px solid rgb(0, 110, 255)";
 
     if (button.textContent === "=") {
         button.style.border = "1px solid black"; 
@@ -61,6 +63,7 @@ function emphasizeButton(button) {
 
     setTimeout(() => {
         button.style.border = "1px solid transparent"; 
+        display.style.border = "2px solid rgb(207, 207, 207)";
     }, 120); 
 }
 
