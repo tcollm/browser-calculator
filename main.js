@@ -44,7 +44,8 @@ function emphasizeButton(button) {
 function getAnswer(display) {
     const displayContent = display.textContent; 
 
-    let x, y = getIntValues(display); 
+    // turn display content into an array
+
 
     displayContent.forEach((element) => {
         switch(element) {
@@ -65,14 +66,6 @@ function getAnswer(display) {
                     "an operator.");
         }
     }); 
-}
-
-function getIntValues(display) {
-    const displayContent = display.textContent;
-
-    // parse content to get x and y values
-
-    return x,y; 
 }
 
 function divide(display) {
