@@ -122,7 +122,11 @@ function splitContent(display) {
 
 function checkContentIncludesOperator(content) {
     if (typeof content === "string") {
-        content = content.split(""); 
+        if (element === "/" || element === "x" || element === "-" || 
+            element === "+") {
+                return true; 
+        }
+        return false;   
     }
 
     content.forEach((element) => {
