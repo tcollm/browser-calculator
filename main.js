@@ -142,6 +142,9 @@ function checkValidInput(buttonText, display) {
     let displayArrCheck = checkContentIncludesOperator(displayArr);
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
 
+    // Add negative sign functionality (this will require a lot of 
+    // checks, possibly require a new function to check if subtraction
+    // sign is valid, and whether or not it is a negative sign)
     if (displayArrCheck === true && buttonTextCheck === true) {
         return 1;
     }
