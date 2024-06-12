@@ -121,6 +121,10 @@ function splitContent(display) {
 }
 
 function checkContentIncludesOperator(content) {
+    if (typeof content === "string") {
+        content = content.split(""); 
+    }
+
     content.forEach((element) => {
         if (element === "/" || element === "x" || element === "-" || 
             element === "+") {
