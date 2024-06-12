@@ -45,9 +45,9 @@ function getAnswer(display) {
     const displayContent = display.textContent; 
 
     // turn display content into an array
+    let displayArr = displayContent.split(" ");
 
-
-    displayContent.forEach((element) => {
+    displayArr.forEach((element) => {
         switch(element) {
             case "/":
                 divide(display);
@@ -68,20 +68,21 @@ function getAnswer(display) {
     }); 
 }
 
-function divide(display) {
-
+// do all of the x and y values need to be converted to ints before operations happen?
+function divide(x, y, display) {
+    display.textContent = x / y; 
 }
 
-function multiply(display) {
-
+function multiply(x, y, display) {
+    display.textContent = x * y; 
 }
 
-function subtract(display) {
-
+function subtract(x, y, display) {
+    display.textContent = x - y; 
 }
 
-function add(display) {
-
+function add(x, y, display) {
+    display.textContent = x + y; 
 }
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
