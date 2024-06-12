@@ -20,9 +20,8 @@ function changeDisplay(buttonText) {
     
         // if operator called add spaces before and after 
         // ALSO check if an operator has been called before
-        if (buttonText === "/" || buttonText === "x" || buttonText === "-" || 
-            buttonText === "+") 
-        {
+        let operatorCheck = checkContentIncludesOperator(buttonText); 
+        if (operatorCheck === true) {
             buttonText = " " + buttonText + " "; 
         }
     
@@ -101,10 +100,11 @@ function add(x, y, display) {
 function checkValidInput(buttonText, display) {
     let displayArr = splitContent(display); 
 
-    // check if multiple operators pressed 
-    if () {
+    let displayArrCheck = checkContentIncludesOperator(displayArr);
+    let buttonTextCheck = checkContentIncludesOperator(buttonText);
+     
+    if (displayArrCheck === true && buttonTextCheck === true) {
         return "multiple operators pressed";
-
     // check if there are x, y, and an operator values before pressing "="
     } else if () {
         return "x value not found"; 
@@ -119,6 +119,16 @@ function splitContent(display) {
     const displayContent = display.textContent; 
 
     return displayArr = displayContent.split(" ");
+}
+
+function checkContentIncludesOperator(content) {
+    content.forEach((element) => {
+        if (element === "/" || element === "x" || element === "-" || 
+            element === "+") {
+                return true; 
+        }
+    });
+    return false; 
 }
 
 function main() {
