@@ -52,7 +52,7 @@ function changeDisplay(buttonText) {
 }
 
 function createOnClickEvents() {
-    const buttons = Array.from(document.querySelectorAll("button")); 
+    const buttons = Array.from(document.querySelectorAll("button:not(.credit-content)")); 
 
     buttons.forEach((button) => button.addEventListener("click", () => {
         addEmphasis(button); 
