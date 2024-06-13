@@ -12,9 +12,6 @@ function changeDisplay(buttonText) {
             display.textContent = "0"; 
         }
 
-        // BUG: if equal sign pressed after operation, display is erased.
-        // Correct functionality should not change display at all.
-        // (This will be fixed with y value check in checkValidInput function.) 
         if (buttonText === "=") {
             equalSignPressed = true; 
             getAnswer(display);  
@@ -63,7 +60,6 @@ function createOnClickEvents() {
     })); 
 }
 
-// add check for button type 
 function addEmphasis(button) {
     const display = document.querySelector(".display"); 
 
@@ -133,7 +129,7 @@ function add(x, y, display) {
 // 3 : "." check (only one allowed per x and y value)
 // ? : y value not found (no functionality currently)
 
-// checks if the next input is valid. Ex: cannot put "+" after "="
+// checks if the next input is valid, i.e. cannot put "+" after "="
 function checkValidInput(buttonText, display) {
     let displayArr = splitContent(display); 
 
@@ -150,20 +146,13 @@ function checkValidInput(buttonText, display) {
 
     if (buttonText === ".") {
         if (displayArr.length === 1 && displayArr[0].includes(".")) {
-            // console.log("trying to append more than one '.' to x");
             return 3; 
         } else if (displayArr.length === 3) {
             if (displayArr[2].includes(".")) {
-                // console.log("trying to append more than one '.' to y"); 
                 return 3; 
             }
         }
     }
-
-
-
-
-    // BUG: fix "." functionality (one "." per value)
 
     // Add negative sign functionality 
 
@@ -195,3 +184,17 @@ function main() {
 }
 
 main(); 
+
+/* CURRENT BUGS: 
+    - No negative sign functionality
+    - If "=" pressed after operation, then display resets. Instead, it 
+    should wait for a y value
+    - Round answers using scientific notation if they are a certain
+    size
+    - Round off error in calculations including mixed numbers, i.e 
+    "3.0 - 3.3 = -0.299..98" instead of " = -0.3"
+    - 
+
+
+
+*/
