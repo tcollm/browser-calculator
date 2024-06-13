@@ -27,22 +27,13 @@ function changeDisplay(buttonText) {
             display.textContent = "0"
             return; 
         }
-    
-        if (display.textContent === "0") {
-            display.textContent = ""; 
-        }
 
-        // Treat operators differently than numbers. The spaces make 
-        // them more visually appealing. 
-        let operatorCheck = checkContentIncludesOperator(buttonText); 
-        if (operatorCheck === true) {
-            // If there is no given x value, than it is assumed that 
-            // the x value should be 0. 
-            if (buttonText === "0") {
-                buttonText = "0" + " " + buttonText + " "; 
-            } else {
-                buttonText = " " + buttonText + " ";
-            }
+        if (checkContentIncludesOperator(buttonText)) {
+            buttonText = " " + buttonText + " "; 
+        } else if (!(checkContentIncludesOperator(buttonText))) {
+            if (!(checkContentIncludesOperator(display.textContent)) && display.textContent === "0") {
+                display.textContent = ""; 
+            }   
         }
     
         display.textContent += buttonText; 
@@ -148,11 +139,6 @@ function checkValidInput(buttonText, display) {
     if (displayArrCheck === true && buttonTextCheck === true) {
         return 1;
     }
-
-    // Check for correct number of values needs to be more secure. 
-    // Possibly convert first and third values to ints, and then
-    // check if array contains an operator and two ints (and an
-    // equal sign)
 
     // } else if (displayArrCheck === true && displayArr.length != 3) {
     //     return 2; 
