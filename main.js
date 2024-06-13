@@ -47,7 +47,10 @@ function changeDisplay(buttonText) {
     } else if (inputCheck === 1) { 
         console.log("WARNING: multiple operators pressed.");
     } else if (inputCheck === 2) {
+        console.log("WARNING: division by zero.");
         display.textContent = "Undefined";
+    } else if (inputCheck === 3) {
+        console.log("WARNING: tried to append multiple decimals to the same number. ")
     }
 }
 
@@ -106,6 +109,7 @@ function getAnswer(display) {
 
 // FIX: check size of answer, if answer is too large, then
 // use scientific notation. 
+// FIX: error calculating floats (ex: 3.0 - 3.3 = 2.99...)
 function divide(x, y, display) {
     display.textContent = x / y; 
 }
@@ -126,7 +130,8 @@ function add(x, y, display) {
 // 0 : none
 // 1 : multiple operators pressed
 // 2 : divide by 0 
-// 3 : y value not found (no functionality currently)
+// 3 : "." check (only one allowed per x and y value)
+// ? : y value not found (no functionality currently)
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
 function checkValidInput(buttonText, display) {
@@ -143,9 +148,18 @@ function checkValidInput(buttonText, display) {
         return 2;  
     }
 
+    if (buttonText === ".") {
+        if (displayArr.length === 1 && displayArr[0].includes(".")) {
+            // console.log("trying to append more than one '.' to x");
+            return 3; 
+        } else if (displayArr.length === 3) {
+            if (displayArr[2].includes(".")) {
+                // console.log("trying to append more than one '.' to y"); 
+                return 3; 
+            }
+        }
+    }
 
-    // divide by 0 check
-    // if (displayArr)
 
 
 
