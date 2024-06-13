@@ -16,10 +16,12 @@ function changeDisplay(buttonText) {
             return; 
         }
 
-        // BUG: equal sign is pressed and then an operation comes after it,
-        // then 0 is not appended before the operator
+        // Erase previous answer if new integer selected, else allow operations
+        // to take place on prev answer.  
         if (equalSignPressed) {
-            display.textContent = ""; 
+            if (!(checkContentIncludesOperator(buttonText))) {
+                display.textContent = ""; 
+            } 
             equalSignPressed = false; 
         }
 
