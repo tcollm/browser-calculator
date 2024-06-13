@@ -7,6 +7,11 @@ function changeDisplay(buttonText) {
     inputCheck = checkValidInput(buttonText, display); 
 
     if (inputCheck === 0) {
+
+        if (display.textContent === "Undefined") {
+            display.textContent = "0"; 
+        }
+
         // BUG: if equal sign pressed after operation, display is erased.
         // Correct functionality should not change display at all.
         // (This will be fixed with y value check in checkValidInput function.) 
