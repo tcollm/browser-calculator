@@ -86,9 +86,6 @@ button {
     bottom: 0;
     width: 100%;
     text-align: center;
-
-    /* Make content a button (so that it has the same
-    color as default button) and then link it to my github */
 }
 
 .footer button {
@@ -97,3 +94,8 @@ button {
 
 /*  gray: rgb(207, 207, 207)
     blue: rgb(0, 110, 255) */
+
+
+/* FIXES: 
+    - Add dynamic resizing to calculator 
+*/
