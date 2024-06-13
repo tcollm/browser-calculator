@@ -5,44 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="main.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="display-container">
-            <div class="display">0</div>
-            <button class="clear">CE</button>
+    <div class="page-container">
+        <div class="calculator-container">
+            <div class="display-container">
+                <div class="display">0</div>
+                <button class="clear">CE</button>
+            </div>
+            <div class="buttons">
+                <div class="numbers">
+                    <!-- Add num-row-0 with undo, and another two buttons (CE button will go in operators?) -->
+                    <div class="num-row-1">
+                        <button id="7">7</button>
+                        <button id="8">8</button>
+                        <button id="9">9</button>
+                    </div>
+                    <div class="num-row-2">
+                        <button id="4">4</button>
+                        <button id="5">5</button>
+                        <button id="6">6</button>
+                    </div>
+                    <div class="num-row-3">
+                        <button id="1">1</button>
+                        <button id="2">2</button>
+                        <button id="3">3</button>
+                    </div>
+                    <div class="num-row-4">
+                        <button id="0">0</button>
+                        <button id="period">.</button>
+                        <button id="equals">=</button>
+                    </div>
+                </div>
+                <div class="operators">
+                    <button id="divide">/</button>
+                    <button id="multiply">x</button>
+                    <button id="subtract">-</button>
+                    <button id="add">+</button>
+                </div>
+            </div>
         </div>
-        <div class="buttons">
-            <div class="numbers">
-                <!-- Add num-row-0 with undo, and another two buttons (CE button will go in operators?) -->
-                <div class="num-row-1">
-                    <button id="7">7</button>
-                    <button id="8">8</button>
-                    <button id="9">9</button>
-                </div>
-                <div class="num-row-2">
-                    <button id="4">4</button>
-                    <button id="5">5</button>
-                    <button id="6">6</button>
-                </div>
-                <div class="num-row-3">
-                    <button id="1">1</button>
-                    <button id="2">2</button>
-                    <button id="3">3</button>
-                </div>
-                <div class="num-row-4">
-                    <button id="0">0</button>
-                    <button id="period">.</button>
-                    <button id="equals">=</button>
-                </div>
-            </div>
-            <div class="operators">
-                <button id="divide">/</button>
-                <button id="multiply">x</button>
-                <button id="subtract">-</button>
-                <button id="add">+</button>
-            </div>
+        <div class="credit">
+            <div class="credit-content"><i class="fa fa-github"></i> Tcollm</div>
         </div>
     </div>
 </body>
