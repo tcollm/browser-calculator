@@ -42,12 +42,8 @@ function changeDisplay(buttonText) {
     } else if (inputCheck === 1) { 
         console.log("WARNING: multiple operators pressed.");
     } else if (inputCheck === 2) {
-        console.log("WARNING: Y value not given.");
+        display.textContent = "Undefined";
     }
-    // } else {
-    //     console.log("ERROR: invalid input in changeDisplay"); 
-    // }
-
 }
 
 function createOnClickEvents() {
@@ -99,14 +95,12 @@ function getAnswer(display) {
             case "+":
                 add(x, y, display); 
                 break;
-            // default:
-            //     console.log("ERROR: " + element + "not recognized as " +
-            //         "an operator.");
         }
     }); 
 }
 
-// do all of the x and y values need to be converted to ints before operations happen?
+// FIX: check size of answer, if answer is too large, then
+// use scientific notation. 
 function divide(x, y, display) {
     display.textContent = x / y; 
 }
@@ -126,7 +120,8 @@ function add(x, y, display) {
 // WARNINGS:
 // 0 : none
 // 1 : multiple operators pressed
-// 2 : y value not found
+// 2 : divide by 0 
+// 3 : y value not found (no functionality currently)
 
 // checks if the next input is valid. Ex: cannot put "+" after "="
 function checkValidInput(buttonText, display) {
@@ -135,27 +130,32 @@ function checkValidInput(buttonText, display) {
     let displayArrCheck = checkContentIncludesOperator(displayArr);
     let buttonTextCheck = checkContentIncludesOperator(buttonText);
 
-    // Add negative sign functionality (this will require a lot of 
-    // checks, possibly require a new function to check if subtraction
-    // sign is valid, and whether or not it is a negative sign)
     if (displayArrCheck === true && buttonTextCheck === true) {
         return 1;
     }
 
-    // } else if (displayArrCheck === true && displayArr.length != 3) {
-    //     return 2; 
-    // }
+    if (buttonText === "=" && displayArr[1] === "/" && displayArr[2] === "0") {
+        return 2;  
+    }
 
-    // Check for multiple "."
-    // Allow a single . per number
+
+    // divide by 0 check
+    // if (displayArr)
+
+
+
+    // BUG: fix "." functionality (one "." per value)
+
+    // Add negative sign functionality 
+
     return 0; 
 
 }
 
 function splitContent(display) {
-    const displayContent = display.textContent; 
-
-    return displayArr = displayContent.split(" ");
+    const displayContent = display.textContent;
+    
+    return displayContent.split(" ");
 }
 
 function checkContentIncludesOperator(content) {
