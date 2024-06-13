@@ -193,8 +193,4 @@ main();
     size
     - Round off error in calculations including mixed numbers, i.e 
     "3.0 - 3.3 = -0.299..98" instead of " = -0.3"
-    - 
-
-
-
 */

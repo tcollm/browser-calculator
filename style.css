@@ -3,16 +3,10 @@
     padding: 0;
 }
 
-.page-container {
-    display: flex;
-    flex-direction: column;
-}
-
 .calculator-container {
     display: flex;
     flex-direction: column;
     margin: 32px;
-    /* border: 2px solid red; */
     width: 640px;
 }
 
@@ -30,14 +24,12 @@
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    /* border: 2px solid green; */
     flex-basis: 1;
 }
 
 .num-row-1, .num-row-2, .num-row-3, .num-row-4  {
     display: flex;
     flex: 1;
-    /* border: 2px solid purple; */
 }
 
 .num-row-1 > *, .num-row-2 > *, .num-row-3 > *, .num-row-4 > *, .operators > * {
@@ -67,7 +59,6 @@ body, button{
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
-    /* margin: 3px 0px; */
     padding: 8px;
     text-align: right;
 }
@@ -89,9 +80,15 @@ button {
     color: white;
 }
 
-.credit {
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-    border: 2px solid purple;
+
+    /* Make content a button (so that it has the same
+    color as default button) and then link it to my github */
 }
 
 /*  gray: rgb(207, 207, 207)
