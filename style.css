@@ -91,5 +91,9 @@ button {
     color as default button) and then link it to my github */
 }
 
+.footer button {
+    width: 100%;
+}
+
 /*  gray: rgb(207, 207, 207)
     blue: rgb(0, 110, 255) */
